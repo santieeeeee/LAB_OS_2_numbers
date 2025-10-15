@@ -1,17 +1,19 @@
-﻿// LAB_OS_2_numbers.h
-#pragma once
+﻿#pragma once
 
 #include <windows.h>
+#include <vector>
 
-// Простая структура параметров для потоков
 struct ThreadParams {
-    int* arr;        // указатель на массив
-    size_t n;        // размер массива
-    size_t minIndex; // индекс минимума
-    size_t maxIndex; // индекс максимума
-    double average;  // среднее
+    int* arr;
+    size_t n;
+    size_t minIndex;
+    size_t maxIndex;
+    double average;
 };
 
-// Прототипы функций-потоков
 DWORD WINAPI MinMaxThread(LPVOID lpParam);
 DWORD WINAPI AverageThread(LPVOID lpParam);
+
+void compute_min_max(const std::vector<int>& v, int& outMin, int& outMax);
+double compute_average(const std::vector<int>& v);
+void replace_min_max_with_average(std::vector<int>& v, double avg);

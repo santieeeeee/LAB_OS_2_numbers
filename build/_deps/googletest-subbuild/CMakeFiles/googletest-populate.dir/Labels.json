@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/291be161554617f010410055255f74bb/googletest-populate.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/035542341d189c5dfe8e7faad9bf0402/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-build.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-download.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-install.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-test.rule"
+		},
+		{
+			"file" : "D:/writtenprogramms/LAB_OS_2_numbers/build/_deps/googletest-subbuild/CMakeFiles/dc41dd46561ee59748b0a08fb400cda8/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

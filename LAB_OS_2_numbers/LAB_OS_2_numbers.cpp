@@ -5,6 +5,32 @@
 
 using namespace std;
 
+void compute_min_max(const vector<int>& v, int& outMin, int& outMax) {
+    if (v.empty()) { outMin = outMax = 0; return; }
+    outMin = outMax = v[0];
+    for (size_t i = 1; i < v.size(); ++i) {
+        if (v[i] < outMin) outMin = v[i];
+        if (v[i] > outMax) outMax = v[i];
+    }
+}
+
+double compute_average(const vector<int>& v) {
+    if (v.empty()) return 0.0;
+    long long sum = 0;
+    for (int x : v) sum += x;
+    return static_cast<double>(sum) / static_cast<double>(v.size());
+}
+
+void replace_min_max_with_average(vector<int>& v, double avg) {
+    if (v.empty()) return;
+    int avgInt = static_cast<int>(lround(avg));
+    int minVal, maxVal;
+    compute_min_max(v, minVal, maxVal);
+    for (int& x : v) {
+        if (x == minVal || x == maxVal) x = avgInt;
+    }
+}
+
 DWORD WINAPI MinMaxThread(LPVOID lpParam) {
     ThreadParams* p = reinterpret_cast<ThreadParams*>(lpParam);
     if (!p || !p->arr || p->n == 0) return 1;
@@ -40,6 +66,7 @@ DWORD WINAPI AverageThread(LPVOID lpParam) {
     return 0;
 }
 
+#ifndef UNIT_TEST
 int main() {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(CP_UTF8);
@@ -106,3 +133,4 @@ int main() {
     delete params;
     return 0;
 }
+#endif

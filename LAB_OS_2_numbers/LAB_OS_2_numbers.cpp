@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <thread>
 
 using namespace std;
 
@@ -35,19 +36,24 @@ DWORD WINAPI MinMaxThread(LPVOID lpParam) {
     ThreadParams* p = reinterpret_cast<ThreadParams*>(lpParam);
     if (!p || !p->arr || p->n == 0) return 1;
 
-    size_t minI = 0, maxI = 0;
-    for (size_t i = 1; i < p->n; ++i) {
-        if (p->arr[i] < p->arr[minI]) minI = i;
-        Sleep(7);
-        if (p->arr[i] > p->arr[maxI]) maxI = i;
-        Sleep(7);
-    }
+    // Выполняем работу в std::thread и ждём её завершения перед возвратом
+    std::thread worker([p]() {
+        size_t minI = 0, maxI = 0;
+        for (size_t i = 1; i < p->n; ++i) {
+            if (p->arr[i] < p->arr[minI]) minI = i;
+            Sleep(7);
+            if (p->arr[i] > p->arr[maxI]) maxI = i;
+            Sleep(7);
+        }
 
-    p->minIndex = minI;
-    p->maxIndex = maxI;
+        p->minIndex = minI;
+        p->maxIndex = maxI;
 
-    cout << "min_max: min = " << p->arr[minI] << " (i=" << minI << "), "
-        << "max = " << p->arr[maxI] << " (i=" << maxI << ")\n";
+        cout << "min_max: min = " << p->arr[minI] << " (i=" << minI << "), "
+            << "max = " << p->arr[maxI] << " (i=" << maxI << ")\n";
+        });
+
+    worker.join();
     return 0;
 }
 

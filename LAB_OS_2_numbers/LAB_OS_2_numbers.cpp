@@ -36,7 +36,6 @@ DWORD WINAPI MinMaxThread(LPVOID lpParam) {
     ThreadParams* p = reinterpret_cast<ThreadParams*>(lpParam);
     if (!p || !p->arr || p->n == 0) return 1;
 
-    // Выполняем работу в std::thread и ждём её завершения перед возвратом
     std::thread worker([p]() {
         size_t minI = 0, maxI = 0;
         for (size_t i = 1; i < p->n; ++i) {
